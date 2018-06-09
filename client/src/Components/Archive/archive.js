@@ -4,7 +4,7 @@ import "./archive.css";
 const Archive = props => (
 
   <div className="container">
-   <h1>This is the archive box</h1>
+    <h1>This is the archive box</h1>
   </div>
 );
 

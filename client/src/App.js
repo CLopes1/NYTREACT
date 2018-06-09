@@ -1,11 +1,27 @@
 import React, { Component } from "react";
 import Results from "./Components/Results";
 import Archive from "./Components/Archive";
-import SearchBox from "./Components/Archive";
+import SearchBox from "./Components/SearchBox";
+import axios from 'axios';
 
 import "./App.css";
 
 class App extends Component {
+
+  state = {
+    articles: [],
+  }
+
+  handleSearch = (query) => {
+    console.log('query', query);
+    axios.post('api/search', query)
+    .then((res) => {
+
+      console.log('res', res);
+      this.setState({ articles: res.data.articles });
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,10 +32,13 @@ class App extends Component {
           </div>
 
           <SearchBox
-
+            search={this.handleSearch}
           />
 
+          {JSON.stringify(this.state.articles)}
+
           <Results
+            results={this.state.results}
           />
 
           <Archive 

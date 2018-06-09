@@ -1,6 +1,7 @@
 import React from "react";
 import "./results.css";
 
+// stateless functional component
 const Results = props => (
 
   <div className="container">
